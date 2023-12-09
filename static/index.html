@@ -1,0 +1,107 @@
+<!-- CubeSat Dashborad -->
+<!-- Educational Satellite Platform -->
+<!-- Yu Hin Hau -->
+<!-- billwaahau@gmail.com-->
+<!-- 11/20/2023 -->
+
+<html>
+	<style>
+		body	{background-image: linear-gradient(to bottom right, MidnightBlue, DarkSlateGray);}
+		h1		{color: whitesmoke;}
+		h2		{color: whitesmoke;}
+		h3		{color: whitesmoke;}
+		h4		{color: whitesmoke;}
+		p		{color: whitesmoke}
+		th		{color: whitesmoke}
+		td		{color: whitesmoke}
+		div		{padding-bottom: 50px;}
+	
+
+		#table {
+			display:flex;
+			justify-content:center;
+			flex-wrap: wrap;
+			width:100%;
+		}
+
+		#table > div {
+			width:25%;
+		}
+
+		@media(max-width:1024px){
+			#table > div {
+				width:33%;
+			}
+		}
+
+		@media(max-width:768px){
+			#table > div {
+				width:50%;
+			}
+		}
+
+		@media(max-width:500px){
+			#table > div {
+				width:100%;
+			}
+		}
+	</style>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<title>CubeSat Dashboard</title>		    		
+	</head>
+	
+	<body>
+		<center>			
+			<h1>CubeSat Dashboard</h1>
+			<img src="logo.svg" width="500px">
+			<h3>Mission Time</h3>
+			<h1>$time$s</h1>
+			<br>
+
+		<div id="table">
+			<div>
+				<center>
+					<h1>$temperature$</h1>
+					<h3 class="headings">Temperature (°C)</h3>
+					<img src="thermometer_icon.svg" width="100px">				  
+				</center>
+			</div>
+
+			<div>
+				<center>
+					<h1>$pressure$</h1>
+					<h3 class="headings">Pressure (hPa)</h3>
+					<img src="pressure_icon.svg" width="100px">				  
+				</center>
+			</div>
+
+			<div>
+				<center>
+					<h1>$brightness$</h1>
+					<h3 class="headings">Brightness (%)</h3>
+					<img src="brightness_icon.svg" width="100px">				  
+				</center>
+			</div>
+
+			<div>
+				<center>
+					<h1>$range$</h1>
+					<h3 class="headings">Range (cm)</h3>
+					<img src="range_icon.svg" width="100px">				  
+				</center>
+			</div>
+			
+		 </div>
+		
+		
+	</body>
+	
+	<script>
+		setTimeout(function(){window.location.reload(1);}, 1000);
+	</script>
+
+</html>

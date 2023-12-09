@@ -1,0 +1,88 @@
+<html>
+
+	<style>
+		body {background-image: linear-gradient(to bottom right, MidnightBlue, DarkSlateGray);}
+		h1   {color: whitesmoke;}
+		h2   {color: whitesmoke;}
+		h3   {color: whitesmoke;}
+		h4   {color: whitesmoke;}
+		p    {color: whitesmoke}
+		th    {color: whitesmoke}
+		td    {color: whitesmoke}
+		table {
+
+		table-layout: fixed;
+		width: 100%;
+		border-collapse: collapse;
+		border: 3px solid purple;
+		}
+
+		thead th:nth-child(1) {
+		width: 30%;
+		}
+
+		thead th:nth-child(2) {
+		width: 20%;
+		}
+
+		thead th:nth-child(3) {
+		width: 15%;
+		}
+
+		thead th:nth-child(4) {
+		width: 35%;
+		}
+
+		th,
+		td {
+		padding: 0px;
+		}
+	</style>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+		<title>CubeSat Dashboard</title>		    
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css">-->
+	</head>
+	
+	<body>
+		<center>			
+			<h1>CubeSat Dashboard</h1>
+			<img src="logo.svg" width="500px">
+			<h3>Mission Time</h3>
+			<h1>$time$s</h1>
+			<br>
+			<table class="table">
+				<tr>
+					<th scope="col"><h3>Temperature (°C)</h3></th>
+					<th scope="col"><h3>Pressure (hPa)</h3></th>
+					<th scope="col"><h3>Brightness (%)</h3></th>
+					<th scope="col"><h3>Range (m)</h3></th>
+				</tr>
+				<tr>
+					<td><center><h1>$temperature$</h1></center></td>
+					<td><center><h1>$pressure$</h1></center></td>
+					<td><center><h1>$brightness$</h1></center></td>
+					<td><center><h1>$range$</h1></center></td>
+				</tr>
+				<tr>
+					<td><center><img src="thermometer_icon.svg" width="100px"></center></td>
+					<td><center><img src="pressure_icon.svg" width="100px"></center></td>
+					<td><center><img src="brightness_icon.svg" width="100px"></center></td>
+					<td><center><img src="range_icon.svg" width="100px"></center></td>
+				</tr>
+			</table>
+		</center>
+		
+		
+	</body>
+	
+	<script>
+		setTimeout(function(){window.location.reload(1);}, 1000);
+	</script>
+
+</html>
