@@ -148,7 +148,7 @@ class Satellite:
                 html = html.replace("$temperature$", str(self.temperature))
                 html = html.replace("$range$", str(self.distance))
 
-                return Response(request, html, headers=Headers("Expires: Mon, 15 Jan 2024 00:00:00 GMT") ,content_type="text/html")
+                return Response(request, html, headers=Headers("Expires: Mon, 15 Jan 2024 00:00:00 GMT") , content_type="text/html")
 
         self.server.start(str(wifi.radio.ipv4_address_ap))
 
@@ -171,8 +171,11 @@ class Satellite:
         self.setupI2C()
 
         if self.I2C:
-            display_bus = displayio.I2CDisplay(self.I2C, device_address=0x3C)
-            self.display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=32)
+            try:
+                display_bus = displayio.I2CDisplay(self.I2C, device_address=0x3C)
+                self.display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=32)
+            except:
+                self.display = None
 
 
     def displayText(self, text):
@@ -374,8 +377,16 @@ class Satellite:
         if not self.resetButton.value:
             print('Locking R&R')
             self.led.value = True
-            self.servoSetup()
-            self.servoDetach()
+
+            for i in [1,2]:
+                self.servoSetup(i)
+                self.servoAngle(90, i)
+                time.sleep(1)
+                print(f"[LOCKING] RETENTION SERVO {i} locked!\n")
+
+                self.servoDetach(i)
+
+
             self.led.value = False
 
     ############ Brightness Sensor ####################
@@ -386,7 +397,7 @@ class Satellite:
     def readBrightness(self):
         if self.brightnessSensor is None:
             print("[ERROR] Cannot read brightness, the Brightness Sensor is currently OFF! You might want to call cubeSat.startBrightnessSensor() in your code!")
-            time.sleep(0.1)
+#             time.sleep(0.1)
         else:
             b = round((1 - self.brightnessSensor.value/53023) * 100, 1)
 
